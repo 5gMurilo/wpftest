@@ -1,0 +1,92 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_tests"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="702"
+        Width="591" 
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        >
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="308"/>
+            <RowDefinition Height="394"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="591"/>
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="20 20 0 0">
+            <Border.Background >
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#1E5680" Offset="0" />
+                    <GradientStop Color="#1E5680" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <StackPanel Margin="10" VerticalAlignment="Center">
+
+                <TextBlock 
+                Text="Login" 
+                Foreground="#FAFAFA" 
+                FontSize="30" 
+                FontWeight="SemiBold" 
+                TextAlignment="Center"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Margin="5"
+                />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2">
+            <Border.Background >
+                <SolidColorBrush Color="#FAFAFA" />
+            </Border.Background>
+            <Border.CornerRadius >
+                <CornerRadius BottomLeft="20" BottomRight="20"/>
+            </Border.CornerRadius>
+            <StackPanel>
+                <TextBlock 
+                    Text="USUÁRIO"
+                    FontSize="20"
+                    FontWeight="Bold" Width="316"
+                    Margin="0 20 0 5"
+                    />
+                <Border 
+                    Name="txt_border1"
+                    Width="327"
+                    Height="50"
+                    CornerRadius="12"
+                    BorderThickness="1.5" 
+                    BorderBrush="#7D7D7D"
+                    VerticalAlignment="Center"
+                    >
+                    <TextBox 
+                        x:Name="txt_username" 
+                        FontSize="17" 
+                        Padding="0 10" 
+                        BorderThickness="0"
+                        Background="Transparent" Margin="4,2,4,2"
+                    />
+                </Border>
+            </StackPanel>
+        </Border>
+
+
+
+
+
+
+    </Grid>
+</Window>
