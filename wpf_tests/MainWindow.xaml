@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpf_tests"
         mc:Ignorable="d"
-        Title="MainWindow" 
+        Title="Login" 
         Height="702"
-        Width="591" 
+        Width="550" 
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
@@ -23,10 +23,10 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="591"/>
+            <ColumnDefinition Width="550"/>
         </Grid.ColumnDefinitions>
 
-        <Border CornerRadius="20 20 0 0">
+        <Border CornerRadius="20 20 0 0" VerticalAlignment="Center" >
             <Border.Background >
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                     <GradientStop Color="#1E5680" Offset="0" />
@@ -34,18 +34,21 @@
                 </LinearGradientBrush>
             </Border.Background>
 
-            <StackPanel Margin="10" VerticalAlignment="Center">
-
-                <TextBlock 
-                Text="Login" 
-                Foreground="#FAFAFA" 
-                FontSize="30" 
-                FontWeight="SemiBold" 
-                TextAlignment="Center"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Center"
-                Margin="5"
-                />
+            <StackPanel Margin="10" Height="300" Width="550"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Image Source="{StaticResource LogoImage}"
+                       Width="180" Height="180" Margin="0 30 0 0"/>
+                <TextBlock
+                    Text="Login"
+                    FontSize="30"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    Margin="0 20 0 0"
+                    />
             </StackPanel>
         </Border>
 
@@ -63,23 +66,27 @@
                     FontWeight="Bold" Width="316"
                     Margin="0 20 0 5"
                     />
-                <Border 
-                    Name="txt_border1"
+                <TextBox
                     Width="327"
-                    Height="50"
-                    CornerRadius="12"
-                    BorderThickness="1.5" 
+                    Height="45"
+                    BorderThickness="1.6"
                     BorderBrush="#7D7D7D"
+                    Background="Transparent"
+                    x:Name="txt_username"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    TextAlignment="Left"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Center"
+                    Padding="10 0"
+                    FontSize="18"
                     >
-                    <TextBox 
-                        x:Name="txt_username" 
-                        FontSize="17" 
-                        Padding="0 10" 
-                        BorderThickness="0"
-                        Background="Transparent" Margin="4,2,4,2"
-                    />
-                </Border>
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="12" />
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
 
                 <TextBlock
                     Text="SENHA"
@@ -88,51 +95,63 @@
                     Width="316"
                     Margin="0 28 0 5"
                     />
-                <Border 
-                    Name="txt_border2"
+                <TextBox
                     Width="327"
-                    Height="50"
-                    CornerRadius="12"
-                    BorderThickness="1.5"
+                    Height="45"
+                    BorderThickness="1.6"
                     BorderBrush="#7D7D7D"
+                    Background="Transparent"
+                    x:Name="txt_password"
+                    HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    TextAlignment="Left"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Center"
+                    Padding="10 0"
+                    FontSize="18"
                     >
-                    <TextBox
-                        Name="txt_password"
-                        FontSize="17"
-                        Padding="0 10"
-                        BorderThickness="0"
-                        Background="Transparent"
-                        Margin="4 2 4 2"
-                        />
-                </Border>
-
-                <Border
-                    BorderBrush="#1E5680"
-                    Width="236"
-                    Height="65"
-                    Margin="0 30"
-                    Background="#1E5680"
-                    CornerRadius="12"
-                    >
-                    <Button
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="12" />
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+               
+                <Button
                         Name="buttonLogin"
-                        Width="211"
-                        Height="40"
-                        Background="#1E5680"
-                        BorderThickness="0"
+                        Width="200"
+                        Height="50"
+                        Margin="0 30 0 0"
+                        Content="ENTRAR"
+                        Foreground="#fafafa"
+                        FontWeight="Bold"
+                        FontSize="20"
                     >
-                        <TextBlock 
-                            Text="ENTRAR"
-                            FontWeight="Bold"
-                            FontSize="25"
-                            Foreground="#FAFAFA"
-                        />
-                    </Button>
-                </Border>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#1E5680"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="12" Background="{TemplateBinding Background}">
+                                            <ContentPresenter 
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Content="{TemplateBinding Content}"
+                                                />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Background" Value="#1E5680"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
-
-
         </Border>
     </Grid>
 </Window>
